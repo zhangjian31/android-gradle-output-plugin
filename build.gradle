@@ -1,7 +1,11 @@
-//apply plugin: 'groovy'
-//apply plugin: 'maven'
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply from: 'upload.gradle'
+//apply from: 'local.gradle'
+
+//group = GROUP_ID
+//archivesBaseName = 'out_apk_plugin'
+//version = VERSION
 
 buildscript {
 
@@ -43,4 +47,3 @@ dependencies {
     compile localGroovy()
 }
 
-apply from: 'upload.gradle'

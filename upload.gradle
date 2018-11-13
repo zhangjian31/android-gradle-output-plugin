@@ -5,7 +5,7 @@ def siteUrl = 'https://github.com/zhangjian31/android-gradle-output-plugin.git'
 def gitUrl = 'https://github.com/zhangjian31/android-gradle-output-plugin.git'
 
 group = GROUP_ID
-archivesBaseName = 'out_apk_plugin'
+archivesBaseName = ARTIFACT_ID
 version = VERSION
 
 install {
@@ -65,11 +65,13 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-//        name = "${GROUP_ID}:${ARTIFACT_ID}"    //发布到JCenter上的项目名字
-        name="android-gradle-output-plugin"
+        name = "android-gradle-output-plugin"//发布到JCenter上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
     }
 }
+
+//生成maven库所需要的POM文件 ./gradlew install
+//上传你的Library库到jcenter的maven库 ./gradlew bintrayUpload
