@@ -1,4 +1,4 @@
-package cn.jeryzhang.gradle
+package cn.jeryzhang.gradle.outapk
 
 import org.gradle.BuildListener
 import org.gradle.BuildResult

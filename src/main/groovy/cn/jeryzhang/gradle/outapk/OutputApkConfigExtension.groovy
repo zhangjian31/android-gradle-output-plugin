@@ -1,4 +1,4 @@
-package cn.jeryzhang.gradle
+package cn.jeryzhang.gradle.outapk
 
 import groovy.text.SimpleTemplateEngine
 import org.gradle.api.Project
