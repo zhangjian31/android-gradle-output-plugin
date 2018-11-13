@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply from: 'upload.gradle'
-//apply from: 'local.gradle'
+//apply from: 'upload.gradle'
+apply from: 'local.gradle'
 
 //group = GROUP_ID
 //archivesBaseName = 'out_apk_plugin'

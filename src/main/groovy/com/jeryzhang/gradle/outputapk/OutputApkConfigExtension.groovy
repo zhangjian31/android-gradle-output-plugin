@@ -17,6 +17,9 @@ class OutputApkConfigExtension {
 
     def startCopy(Project project) {
         File outputFile = new File(project.buildDir.path + "/outputs")
+        if (outputFile==null||!outputFile.exists()){
+            return
+        }
         def desFile = new File(copyTo)
         if (desFile.isFile()) {
             desFile.delete()
@@ -27,6 +30,7 @@ class OutputApkConfigExtension {
         desFile.mkdir()
         outputFile.eachFileRecurse { file ->
             if (file.getName().endsWith(".apk")) {
+                println("###############"+file.path)
                 project.copy {
                     from(file.path)
                     into(desFile)
