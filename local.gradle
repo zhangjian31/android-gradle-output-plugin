@@ -1,4 +1,5 @@
 apply plugin: 'maven'
+apply plugin: 'java'
 //设置maven deployer
 uploadArchives {
     repositories {

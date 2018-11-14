@@ -1,7 +1,7 @@
-apply plugin: 'java'
-apply plugin: 'groovy'
-//apply from: 'upload.gradle'
-apply from: 'local.gradle'
+//apply plugin: 'java'
+//apply plugin: 'groovy'
+//apply from: 'https://raw.github.com/zhangjian31/gradle-jery-push/master/upload.gradle'
+apply from: 'https://raw.github.com/zhangjian31/gradle-jery-push/master/local.gradle'
 
 //group = GROUP_ID
 //archivesBaseName = 'out_apk_plugin'
@@ -16,7 +16,6 @@ buildscript {
         jcenter()
     }
     dependencies {
-//        classpath 'com.android.tools.build:gradle:3.1.1'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
@@ -24,15 +23,6 @@ buildscript {
 tasks.withType(GroovyCompile) {
     sourceCompatibility = '1.7'
     targetCompatibility = '1.7'
-}
-configurations {
-    provided
-}
-
-sourceSets {
-    main {
-        compileClasspath += configurations.provided
-    }
 }
 
 repositories {
