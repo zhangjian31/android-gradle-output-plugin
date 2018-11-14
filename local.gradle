@@ -3,11 +3,8 @@ apply plugin: 'maven'
 uploadArchives {
     repositories {
         mavenDeployer {
-            //设置插件的GAV参数
             pom.groupId = GROUP_ID
-            pom.artifactId = ARTIFACT_ID
             pom.version = VERSION
-            //文件发布到下面目录
             repository(url: uri('./repo'))
         }
     }
