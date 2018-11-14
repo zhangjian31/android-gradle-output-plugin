@@ -1,27 +1,17 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'groovy'
-
-def siteUrl = 'https://github.com/zhangjian31/android-gradle-output-plugin.git'
-def gitUrl = 'https://github.com/zhangjian31/android-gradle-output-plugin.git'
 
 group = GROUP_ID
-archivesBaseName = ARTIFACT_ID
 version = VERSION
 
 install {
     repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
         pom {
-            artifactId = ARTIFACT_ID
-
             project {
                 packaging 'aar'
-                // Add your description here
-                description 'a plugin for android output apks'
-                name 'Android构建出来apk进行重命名和位置迁移，主要是对多渠道打包后的处理'  // 可默认，项目描述
-                url siteUrl
-                // Set your license
+                description PROJ_DESCRIPTION
+                name PROJ_NAME
+                url PROJ_SITE_URL
                 licenses {
                     license {
                         name 'The Apache Software License, Version 2.0'
@@ -30,31 +20,31 @@ install {
                 }
                 developers {
                     developer { //  可默认，开发者信息
-                        id 'jeryzhang31'
-                        name 'zhangjian'
-                        email 'zhangjianembedded@gmail.com'
+                        id DEVELOPER_ID
+                        name DEVELOPER_NAME
+                        email DEVELOPER_EMAIL
                     }
                 }
                 scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
+                    connection PROJ_GIT_URL
+                    developerConnection PROJ_GIT_URL
+                    url PROJ_SITE_URL
                 }
             }
         }
     }
 }
 
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allJava
+task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
+    from sourceSets.main.allSource
 }
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
-    from groovydoc.destinationDir
+    from javadoc.destinationDir
 }
 artifacts {
-    //archives javadocJar
+    archives javadocJar
     archives sourcesJar
 }
 
@@ -66,9 +56,9 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "android-gradle-output-plugin"//发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
+        name = PROJ_NAME
+        websiteUrl = PROJ_SITE_URL
+        vcsUrl = PROJ_GIT_URL
         licenses = ["Apache-2.0"]
         publish = true
     }

@@ -1,8 +1,11 @@
-//apply plugin: 'java'
+apply plugin: 'java'
 //apply plugin: 'groovy'
 //apply from: 'https://raw.github.com/zhangjian31/gradle-jery-push/master/upload.gradle'
-apply from: 'https://raw.github.com/zhangjian31/gradle-jery-push/master/local.gradle'
+//apply from: 'https://raw.github.com/zhangjian31/gradle-jery-push/master/local.gradle'
+//apply from:'local.gradle'
 
+
+apply from:'upload.gradle'
 //group = GROUP_ID
 //archivesBaseName = 'out_apk_plugin'
 //version = VERSION
